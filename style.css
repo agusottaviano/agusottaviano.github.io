@@ -18,6 +18,13 @@ body {
   padding: 0;
   background-color: var(--bg-color);
   color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 header {
@@ -64,12 +71,14 @@ ul {
   background-color: var(--card-bg);
   border: 1px solid #ccc;
   border-radius: 12px;
-  padding: 1rem;
-  transition: transform 0.2s ease;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .proyecto:hover {
-  transform: scale(1.02);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .proyecto img {
@@ -81,17 +90,74 @@ ul {
 a {
   color: var(--accent-color);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
   text-decoration: underline;
+  color: #0066cc;
+}
+
+.proyecto a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.proyecto a:hover {
+  background-color: #0066cc;
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
 footer {
   text-align: center;
-  padding: 1rem;
-  background-color: #eee;
-  color: #555;
+  padding: 2rem 1rem;
+  background-color: var(--accent-color);
+  color: white;
+  margin-top: 3rem;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.cv-button, .theme-button {
+  padding: 0.8rem 1.5rem;
+  background-color: white;
+  color: var(--accent-color);
+  border: 2px solid white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.cv-button:hover, .theme-button:hover {
+  background-color: transparent;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.cv-button {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.cv-button:hover {
+  background-color: #218838;
+  border-color: #218838;
 }
 
 button {
@@ -101,4 +167,42 @@ button {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cv-button, .theme-button {
+    width: 200px;
+  }
+  
+  main {
+    padding: 1rem;
+  }
+  
+  .proyectos-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .avatar {
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 1.5rem 1rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .proyecto {
+    padding: 1rem;
+  }
 }
